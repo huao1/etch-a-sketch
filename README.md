@@ -1,0 +1,1 @@
+A webpage created using HTML, CSS, and JavaScript. The site allows people to draw on a grided sketch pad.
