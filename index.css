@@ -1,0 +1,14 @@
+.sketch-container {
+    display: flex;
+    justify-content: center;
+}
+
+.sketch-grid {
+    border: 2px black solid;
+    width: 20px;
+    height: 20px;
+}
+
+.sketch-grid:hover {
+    border: 2px orange solid;
+}
