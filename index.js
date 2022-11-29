@@ -12,9 +12,9 @@ function sliderDisplay() {
 }
 
 function createGrid(size = 16) {
-    const sketchContainer = document.querySelector(".sketch-container");
+    const sketchContainer = document.querySelector(".grid-container");
 
-    //let width = 960/17;
+    let totalWidth = 560;
     //width = Math.round(width * 100) / 100;
     //console.log(width);
 
@@ -24,13 +24,31 @@ function createGrid(size = 16) {
 
         for (let j = 0; j < size; j++) {
             const sketchGrid = document.createElement("div");
-            sketchGrid.classList.add("sketch-grid");
-            sketchGrid.classList.add("sketch-grid:hover");
+            sketchGrid.classList.add("grid");
+            sketchGrid.style.cssText = `width: ${totalWidth/size}px; height: ${totalWidth/size}px;`;
+            sketchGrid.classList.add("grid:hover");
             divRow.appendChild(sketchGrid);
         }
     }
+}
 
+function submitGridSize() {
+    const btn = document.querySelector("button");
+    btn.addEventListener("click", updateGrid);
+}
+
+function updateGrid() {
+    const size = document.querySelector("#myRange");
+    let gridDiv = document.querySelector(".grid-container > div");
+
+    while (gridDiv != null) {
+        gridDiv.remove();
+        gridDiv = document.querySelector(".grid-container > div");
+    }
+
+    createGrid(size.value);
 }
 
 createGrid();
 sliderDisplay();
+submitGridSize();

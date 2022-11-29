@@ -54,19 +54,21 @@ h1 {
 }
   
 
-.sketch-container {
+.grid-container {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.sketch-grid {
+.grid {
+    margin-top: -1px;
+    margin-right: -1px;
     border: 2px black solid;
-    width: 20px;
-    height: 20px;
+    width: 35px;
+    height: 35px;
 }
 
-.sketch-grid:hover {
+.grid:hover {
     border: 2px orange solid;
 }
 
