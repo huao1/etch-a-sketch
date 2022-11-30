@@ -1,3 +1,25 @@
+#colorPicker {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 30px;
+    border: none;
+    cursor: pointer;
+}
+
+#colorPicker::-webkit-color-swatch {
+    border-radius: 50%;
+    border: 4px solid #1d1d1d;
+}
+
+#colorPicker::-moz-color-swatch {
+    border-radius: 50%;
+    border: 3px solid #1d1d1d;
+}
+
 body {
     background-color: #c5c5c5;
 }
@@ -25,6 +47,7 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     width: 25%;
 }
 
@@ -99,3 +122,5 @@ button {
     border: 3px solid snow;
     color: snow;
   }
+
+  

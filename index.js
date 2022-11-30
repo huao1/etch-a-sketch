@@ -10,7 +10,6 @@ function sliderDisplay() {
     value.textContent = `${slider.value}x${slider.value}`;
 
     slider.oninput = function () {
-        console.log(slider.value);
         value.textContent = `${this.value}x${this.value}`;
     }
 }
@@ -67,8 +66,8 @@ function toggleMode() {
     const eraser = document.querySelector("#eraser");
     eraser.addEventListener("click", eraserMode);
 
-    console.log(rainbow);
-    console.log(eraser);
+    const color = document.querySelector("#color");
+    color.addEventListener("click", colorMode);
 }
 
 function rainbowMode(e) {
@@ -115,8 +114,30 @@ function eraserMode(e) {
     });
 }
 
+function colorMode(e) {
+    const buttons = document.querySelectorAll(".setting-buttons");
+    for (const button of buttons) {
+        button.classList.remove("on");
+        button.classList.add("off");
+    }
+    e.target.classList.add("on");
+
+    const colorPicker = document.querySelector("#colorPicker");
+    
+    const grids = document.querySelectorAll(".grid");
+    grids.forEach((grid) => {
+        grid.addEventListener("mousedown", () => {
+            grid.style.cssText += `background-color: ${colorPicker.value}`;
+        });
+        grid.addEventListener("mouseenter", () => {
+            if (mouseDown == true) {
+                grid.style.cssText += `background-color: ${colorPicker.value}`;
+            }
+        });
+    });
+}
+
 createGrid();
 sliderDisplay();
 submitGridSize();
-console.log(randomColor());
 toggleMode();
